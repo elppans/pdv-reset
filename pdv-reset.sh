@@ -21,9 +21,9 @@ else
 fi
 
 if [[ "$ARCH" == "x86_64" ]]; then
-    EXECUTAVEL="./util_R90.xz64"
+    EXECUTAVEL="$PDVDIR/util_R90.xz64"
 elif [[ "$ARCH" == "i686" || "$ARCH" == "i386" ]]; then
-    EXECUTAVEL="./util_R90.xz"
+    EXECUTAVEL="$PDVDIR/util_R90.xz"
 else
     echo -e "\n[Erro: Arquitetura do sistema não suportada]\n"
     exit 1
