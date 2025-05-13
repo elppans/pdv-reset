@@ -69,15 +69,18 @@ mv "$PDVDIR"/LIBERA91.BZ0 "$BACKUPDIR"
 
 if ! [ -e "$ARQUIVO_XXX" ]; then
     echo -e "\n[Iniciando fabricação de Impressora, aguarde...]\n"
-    if [ -e "$PARAM_FILE" ] && [ -e "$SIMULA_FILE" ]; then
+if [ -e "$PARAM_FILE" ]; then
         "$EXECUTAVEL" FABRICAR
-        "$EXECUTAVEL" PROG="$PARAM_ECF"
-        "$EXECUTAVEL" PROG="$SIMULA_ECF"
+        "$EXECUTAVEL" PROG="$PARAM_FILE"
+        
+        if [ -e "$SIMULA_FILE" ]; then
+            "$EXECUTAVEL" PROG="$SIMULA_FILE"
+        fi
 
         echo -e "\n[Impressora fabricada com sucesso]\n"
         sleep 3
     else
-        echo -e "\n[Erro: Arquivo(s) de configuração não encontrado(s)!]\n"
+        echo -e "\n[Erro: Arquivo de configuração \".ecf\" não encontrado!]\n"
         exit 1
     fi
 else
