@@ -68,6 +68,7 @@ echo "movendo arquivos LIBERA91.BZ0";
 mv "$PDVDIR"/LIBERA91.BZ0 "$BACKUPDIR"
 
 if ! [ -e "$ARQUIVO_XXX" ]; then
+    cd "$PDVDIR"
     echo -e "\n[Iniciando fabricação de Impressora, aguarde...]\n"
 if [ -e "$PARAM_FILE" ]; then
         "$EXECUTAVEL" FABRICAR
